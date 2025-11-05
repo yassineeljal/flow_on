@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+/* ===== Thème FlowOn ===== */
+:root{
+  /* Dégradé Light (tes images) */
+  --bg-start: #AFC8FF;   /* bleu pervenche doux */
+  --bg-mid:   #9FE0E3;   /* aqua/menthe clair */
+  --bg-end:   #F7B1C8;   /* rose pastel */
+  --ink:      #1D3557;   /* navy/bleu encre pour textes & icônes */
+  --muted:    #51627A;   /* texte secondaire */
+  --card:     #ffffff;
+  --ring:     rgba(29,53,87,.15);
+}
+
+/* Mode sombre inspiré de tes visuels (fond bleu nuit/violet) */
+:root[class~="dark"]{
+  --bg-start: #0B1220;   /* bleu nuit */
+  --bg-mid:   #16253F;   /* bleu profond */
+  --bg-end:   #2B2A6A;   /* violet sombre */
+  --ink:      #E6ECFF;   /* texte clair */
+  --muted:    #B8C0D8;
+  --card:     #0E1627;
+  --ring:     rgba(230,236,255,.12);
+}
+
+/* Couleurs de base */
+html, body{
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 10% 15%, var(--bg-start) 0%, transparent 60%),
+    radial-gradient(1200px 600px at 90% 85%, var(--bg-end) 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-mid) 0%, transparent 60%);
+  background-color: var(--card);
+}
+
+/* Petites cartes & bordures */
+.card{
+  @apply rounded-2xl border p-6;
+  border-color: color-mix(in oklab, var(--ink) 10%, transparent);
+  background: color-mix(in oklab, var(--card) 88%, transparent);
+  box-shadow: 0 1px 0 var(--ring);
+}
+
+/* Boutons */
+.btn{
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium border transition;
+  border-color: color-mix(in oklab, var(--ink) 20%, transparent);
+}
+.btn-primary{
+  color: white;
+  background: color-mix(in oklab, var(--ink) 92%, black 0%);
+  border-color: transparent;
+}
+.btn-ghost{ @apply hover:bg-black/5; }
+
+/* Petites “carrés” décoratifs façon mockups */
+.squares{
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, color-mix(in oklab, var(--ink) 15%, transparent) 99%, transparent 100%),
+    radial-gradient(2px 2px at 30% 60%, color-mix(in oklab, var(--ink) 12%, transparent) 99%, transparent 100%),
+    radial-gradient(2px 2px at 75% 40%, color-mix(in oklab, var(--ink) 10%, transparent) 99%, transparent 100%);
+  opacity:.6;
+}
+
+/* Liens */
+a{ text-decoration: none; }
+a:hover{ text-decoration: underline; text-decoration-color: color-mix(in oklab, var(--ink) 40%, transparent); }
+/* ===== Dégradé animé pour le hero ===== */
+.bg-hero-animated {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.bg-hero-animated .blob {
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  filter: blur(42px);
+  opacity: .35;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+
+/* Couleurs des blobs (suivent les variables du thème) */
+.bg-hero-animated .blob--a {
+  background: radial-gradient(circle at 50% 50%, var(--bg-start) 0%, transparent 60%);
+  animation: blob-move-a 18s ease-in-out infinite alternate;
+}
+.bg-hero-animated .blob--b {
+  background: radial-gradient(circle at 50% 50%, var(--bg-mid) 0%, transparent 60%);
+  animation: blob-move-b 22s ease-in-out infinite alternate;
+}
+.bg-hero-animated .blob--c {
+  background: radial-gradient(circle at 50% 50%, var(--bg-end) 0%, transparent 60%);
+  animation: blob-move-c 26s ease-in-out infinite alternate;
+}
+
+/* Positions de départ (desktop) */
+.bg-hero-animated .blob--a { top: -20vmax; left: -10vmax; }
+.bg-hero-animated .blob--b { bottom: -25vmax; right: -5vmax; }
+.bg-hero-animated .blob--c { top: -15vmax; right: 10vmax; }
+
+/* Légère accentuation en Dark pour plus de présence */
+:root.dark .bg-hero-animated .blob { opacity: .42; }
+
+/* Animations */
+@keyframes blob-move-a {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(6vmax, 4vmax, 0) scale(1.08); }
+}
+@keyframes blob-move-b {
+  0%   { transform: translate3d(0, 0, 0) scale(1.05); }
+  100% { transform: translate3d(-5vmax, -3vmax, 0) scale(0.98); }
+}
+@keyframes blob-move-c {
+  0%   { transform: translate3d(0, 0, 0) scale(0.95); }
+  100% { transform: translate3d(-3vmax, 5vmax, 0) scale(1.07); }
+}
+
+/* Mobile : blobs un peu plus petits */
+@media (max-width: 768px) {
+  .bg-hero-animated .blob { width: 85vmin; height: 85vmin; }
+  .bg-hero-animated .blob--a { top: -35vmin; left: -25vmin; }
+  .bg-hero-animated .blob--b { bottom: -35vmin; right: -15vmin; }
+  .bg-hero-animated .blob--c { top: -25vmin; right: -10vmin; }
+}
