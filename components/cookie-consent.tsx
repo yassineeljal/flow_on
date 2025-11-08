@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 export default function CookieConsent(){
   const KEY = "flowon-cookies";
@@ -18,14 +19,14 @@ export default function CookieConsent(){
   if (!show) return null;
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 p-4">
-      <div className="mx-auto max-w-6xl card flex flex-col md:flex-row items-start md:items-center gap-3">
-        <p className="text-sm" style={{ color: "var(--muted)" }}>
+      <div className="mx-auto max-w-6xl rounded-lg border bg-card/80 backdrop-blur text-card-foreground shadow-sm p-4 flex flex-col md:flex-row items-start md:items-center gap-3">
+        <p className="text-sm text-muted-foreground">
           Nous utilisons des cookies nécessaires et, avec votre accord, des cookies de mesure d’audience.
           Vous pouvez choisir “Nécessaires seulement”.
         </p>
         <div className="flex gap-2 ml-auto">
-          <button className="btn" onClick={() => save("necessary")}>Nécessaires seulement</button>
-          <button className="btn btn-primary" onClick={() => save("all")}>Accepter tout</button>
+          <Button variant="outline" onClick={() => save("necessary")}>Nécessaires seulement</Button>
+          <Button onClick={() => save("all")}>Accepter tout</Button>
         </div>
       </div>
     </div>

@@ -1,31 +1,41 @@
 "use client";
 import { useEffect, useState } from "react";
+import { Moon, Sun, Monitor } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-export default function ThemeToggle(){
+type Mode = "light" | "dark" | "system";
+
+export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
-  const [dark, setDark] = useState(false);
+  const [mode, setMode] = useState<Mode>("system");
 
-  // Lire la préférence au 1er rendu client
   useEffect(() => {
     setMounted(true);
     const saved = localStorage.getItem("flowon-theme");
-    const prefers = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const isDark = saved ? saved === "dark" : prefers;
-    document.documentElement.classList.toggle("dark", isDark);
-    setDark(isDark);
+    if (saved === "light" || saved === "dark" || saved === "system") setMode(saved);
   }, []);
 
-  const toggle = () => {
-    const next = !dark;
-    setDark(next);
-    document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("flowon-theme", next ? "dark" : "light");
+  const apply = (next: Mode) => {
+    const root = document.documentElement;
+    root.classList.remove("dark", "theme-system");
+    if (next === "dark") root.classList.add("dark");
+    if (next === "system") root.classList.add("theme-system");
+    localStorage.setItem("flowon-theme", next);
+    setMode(next);
   };
 
-  if(!mounted) return null;
+  const cycle = () => {
+    const order: Mode[] = ["light", "dark", "system"];
+    const idx = order.indexOf(mode);
+    apply(order[(idx + 1) % order.length]);
+  };
+
+  if (!mounted) return null;
+  const icon = mode === "light" ? <Sun className="h-5 w-5" /> : mode === "dark" ? <Moon className="h-5 w-5" /> : <Monitor className="h-5 w-5" />;
+  const title = mode === "light" ? "Thème clair (cliquer pour sombre)" : mode === "dark" ? "Thème sombre (cliquer pour système)" : "Thème système (cliquer pour clair)";
   return (
-    <button onClick={toggle} className="btn btn-ghost" aria-label="Basculer thème">
-      {dark ? "🌙 Dark" : "☀️ Light"}
-    </button>
+    <Button variant="ghost" size="icon" aria-label="Changer le thème (clair/sombre/système)" onClick={cycle} className="rounded-full" title={title}>
+      {icon}
+    </Button>
   );
 }

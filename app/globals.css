@@ -1,129 +1,204 @@
+/* globals.css — Tailwind v4 ready */
 @import "tailwindcss";
+/* (optionnel) si tu utilises shadcn/ui animations */
+@plugin "tailwindcss-animate";
 
-/* ===== Thème FlowOn ===== */
-:root{
-  /* Dégradé Light (tes images) */
-  --bg-start: #AFC8FF;   /* bleu pervenche doux */
-  --bg-mid:   #9FE0E3;   /* aqua/menthe clair */
-  --bg-end:   #F7B1C8;   /* rose pastel */
-  --ink:      #1D3557;   /* navy/bleu encre pour textes & icônes */
-  --muted:    #51627A;   /* texte secondaire */
-  --card:     #ffffff;
-  --ring:     rgba(29,53,87,.15);
+/* -----------------------------------------------------------------------------
+   1) Palette sémantique (HSL) — Navy modern
+   -------------------------------------------------------------------------- */
+:root {
+  /* clair */
+  --background: 220 35% 98%;
+  --foreground: 222 47% 12%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 12%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 12%;
+
+  --primary: 218 70% 45%;            /* navy */
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 220 17% 94%;
+  --secondary-foreground: 222 47% 12%;
+
+  --muted: 220 16% 96%;
+  --muted-foreground: 217 16% 46%;
+
+  --accent: 221 50% 96%;
+  --accent-foreground: 222 47% 12%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 218 18% 88%;
+  --input: 218 18% 88%;
+  --ring: 218 70% 45%;
+
+  /* étendus */
+  --info: 217 91% 60%;
+  --info-foreground: 210 40% 98%;
+  --success: 149 55% 45%;
+  --success-foreground: 210 40% 98%;
+  --warning: 42 90% 55%;
+  --warning-foreground: 24 10% 10%;
 }
 
-/* Mode sombre inspiré de tes visuels (fond bleu nuit/violet) */
-:root[class~="dark"]{
-  --bg-start: #0B1220;   /* bleu nuit */
-  --bg-mid:   #16253F;   /* bleu profond */
-  --bg-end:   #2B2A6A;   /* violet sombre */
-  --ink:      #E6ECFF;   /* texte clair */
-  --muted:    #B8C0D8;
-  --card:     #0E1627;
-  --ring:     rgba(230,236,255,.12);
+.dark {
+  /* sombre */
+  --background: 220 40% 10%;
+  --foreground: 210 40% 98%;
+
+  --card: 222 40% 12%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222 40% 12%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 217 91% 60%;
+  --primary-foreground: 222 47% 1.2%;
+
+  --secondary: 220 28% 17%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 220 22% 16%;
+  --muted-foreground: 215 20% 70%;
+
+  --accent: 221 35% 18%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 220 24% 22%;
+  --input: 220 24% 22%;
+  --ring: 217 91% 60%;
+
+  --info: 215 95% 65%;
+  --info-foreground: 210 40% 98%;
+  --success: 149 55% 50%;
+  --success-foreground: 210 40% 98%;
+  --warning: 42 95% 60%;
+  --warning-foreground: 222 47% 12%;
 }
 
-/* Couleurs de base */
-html, body{
-  color: var(--ink);
+/* mode système (si tu utilises la classe .theme-system sur <html>) */
+.theme-system {}
+@media (prefers-color-scheme: dark) {
+  .theme-system { /* reprend les valeurs .dark */ 
+    --background: 220 40% 10%;
+    --foreground: 210 40% 98%;
+    --card: 222 40% 12%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 40% 12%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 1.2%;
+    --secondary: 220 28% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 22% 16%;
+    --muted-foreground: 215 20% 70%;
+    --accent: 221 35% 18%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 24% 22%;
+    --input: 220 24% 22%;
+    --ring: 217 91% 60%;
+    --info: 215 95% 65%;
+    --info-foreground: 210 40% 98%;
+    --success: 149 55% 50%;
+    --success-foreground: 210 40% 98%;
+    --warning: 42 95% 60%;
+    --warning-foreground: 222 47% 12%;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   2) Alias Tailwind v4 via @theme
+   (permet d’utiliser bg-background, text-foreground, border-border, etc.)
+   -------------------------------------------------------------------------- */
+@theme {
+  --radius: 12px;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  /* (optionnel) alias étendus */
+  --color-info: hsl(var(--info));
+  --color-info-foreground: hsl(var(--info-foreground));
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+}
+
+/* -----------------------------------------------------------------------------
+   3) Resets & helpers
+   -------------------------------------------------------------------------- */
+* { @apply border-border; }
+body { @apply bg-background text-foreground antialiased; }
+
+/* Dégradé helper */
+.bg-linear-to-b {
+  background-image: linear-gradient(
+    to bottom,
+    hsl(var(--primary) / 0.10),
+    hsl(var(--background))
+  );
+}
+
+/* Sélection */
+::selection {
+  background-color: hsl(var(--primary) / 0.25);
+  color: hsl(var(--primary-foreground));
+}
+
+/* Focus ring (cosmétique, en plus de focus-visible Tailwind) */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--ring));
+}
+
+/* Effet “glass” sur cartes (light/dark) */
+.bg-card\/70 {
+  background-color: color-mix(in oklch, hsl(var(--card)) 70%, transparent);
+}
+
+/* Décor global subtil (halo navy) — optionnel */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
   background:
-    radial-gradient(1200px 600px at 10% 15%, var(--bg-start) 0%, transparent 60%),
-    radial-gradient(1200px 600px at 90% 85%, var(--bg-end) 0%, transparent 60%),
-    linear-gradient(180deg, var(--bg-mid) 0%, transparent 60%);
-  background-color: var(--card);
-}
-
-/* Petites cartes & bordures */
-.card{
-  @apply rounded-2xl border p-6;
-  border-color: color-mix(in oklab, var(--ink) 10%, transparent);
-  background: color-mix(in oklab, var(--card) 88%, transparent);
-  box-shadow: 0 1px 0 var(--ring);
-}
-
-/* Boutons */
-.btn{
-  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium border transition;
-  border-color: color-mix(in oklab, var(--ink) 20%, transparent);
-}
-.btn-primary{
-  color: white;
-  background: color-mix(in oklab, var(--ink) 92%, black 0%);
-  border-color: transparent;
-}
-.btn-ghost{ @apply hover:bg-black/5; }
-
-/* Petites “carrés” décoratifs façon mockups */
-.squares{
-  position: absolute; inset: 0; pointer-events: none;
-  background-image:
-    radial-gradient(2px 2px at 20% 30%, color-mix(in oklab, var(--ink) 15%, transparent) 99%, transparent 100%),
-    radial-gradient(2px 2px at 30% 60%, color-mix(in oklab, var(--ink) 12%, transparent) 99%, transparent 100%),
-    radial-gradient(2px 2px at 75% 40%, color-mix(in oklab, var(--ink) 10%, transparent) 99%, transparent 100%);
-  opacity:.6;
-}
-
-/* Liens */
-a{ text-decoration: none; }
-a:hover{ text-decoration: underline; text-decoration-color: color-mix(in oklab, var(--ink) 40%, transparent); }
-/* ===== Dégradé animé pour le hero ===== */
-.bg-hero-animated {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-.bg-hero-animated .blob {
-  position: absolute;
-  width: 60vmax;
-  height: 60vmax;
-  border-radius: 50%;
-  filter: blur(42px);
-  opacity: .35;
-  mix-blend-mode: screen;
-  will-change: transform, opacity;
-}
-
-/* Couleurs des blobs (suivent les variables du thème) */
-.bg-hero-animated .blob--a {
-  background: radial-gradient(circle at 50% 50%, var(--bg-start) 0%, transparent 60%);
-  animation: blob-move-a 18s ease-in-out infinite alternate;
-}
-.bg-hero-animated .blob--b {
-  background: radial-gradient(circle at 50% 50%, var(--bg-mid) 0%, transparent 60%);
-  animation: blob-move-b 22s ease-in-out infinite alternate;
-}
-.bg-hero-animated .blob--c {
-  background: radial-gradient(circle at 50% 50%, var(--bg-end) 0%, transparent 60%);
-  animation: blob-move-c 26s ease-in-out infinite alternate;
-}
-
-/* Positions de départ (desktop) */
-.bg-hero-animated .blob--a { top: -20vmax; left: -10vmax; }
-.bg-hero-animated .blob--b { bottom: -25vmax; right: -5vmax; }
-.bg-hero-animated .blob--c { top: -15vmax; right: 10vmax; }
-
-/* Légère accentuation en Dark pour plus de présence */
-:root.dark .bg-hero-animated .blob { opacity: .42; }
-
-/* Animations */
-@keyframes blob-move-a {
-  0%   { transform: translate3d(0, 0, 0) scale(1); }
-  100% { transform: translate3d(6vmax, 4vmax, 0) scale(1.08); }
-}
-@keyframes blob-move-b {
-  0%   { transform: translate3d(0, 0, 0) scale(1.05); }
-  100% { transform: translate3d(-5vmax, -3vmax, 0) scale(0.98); }
-}
-@keyframes blob-move-c {
-  0%   { transform: translate3d(0, 0, 0) scale(0.95); }
-  100% { transform: translate3d(-3vmax, 5vmax, 0) scale(1.07); }
-}
-
-/* Mobile : blobs un peu plus petits */
-@media (max-width: 768px) {
-  .bg-hero-animated .blob { width: 85vmin; height: 85vmin; }
-  .bg-hero-animated .blob--a { top: -35vmin; left: -25vmin; }
-  .bg-hero-animated .blob--b { bottom: -35vmin; right: -15vmin; }
-  .bg-hero-animated .blob--c { top: -25vmin; right: -10vmin; }
+    radial-gradient(600px 300px at 15% -10%, hsl(var(--primary)/0.12), transparent 60%),
+    radial-gradient(600px 300px at 85% 110%, hsl(217 91% 60% / 0.10), transparent 60%);
+  z-index: 0;
 }

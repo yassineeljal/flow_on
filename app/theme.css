@@ -1,0 +1,89 @@
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 215 20% 95%;
+  --secondary-foreground: 222 47% 15%;
+  --muted: 215 20% 96%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 215 20% 96%;
+  --accent-foreground: 222 47% 15%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 221 83% 53%;
+  --radius: 12px;
+  color-scheme: light;
+  /* Extended semantic palette */
+  --info: 212 100% 48%;
+  --info-foreground: 210 40% 98%;
+  --success: 149 60% 40%;
+  --success-foreground: 0 0% 98%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 24 10% 10%;
+}
+.dark {
+  --background: 218 39% 11%;
+  --foreground: 210 40% 98%;
+  --card: 220 39% 13%;
+  --card-foreground: 210 40% 98%;
+  --popover: 220 39% 13%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217 91% 60%;
+  --primary-foreground: 222 47% 1.2%;
+  --secondary: 217 25% 18%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 220 20% 17%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 221 44% 18%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217 25% 22%;
+  --input: 217 25% 22%;
+  --ring: 217 91% 60%;
+  color-scheme: dark;
+  --info: 212 100% 55%;
+  --info-foreground: 210 40% 98%;
+  --success: 149 55% 46%;
+  --success-foreground: 210 40% 98%;
+  --warning: 42 92% 55%;
+  --warning-foreground: 222 47% 11%;
+}
+.theme-system { /* system theme marker */ outline: 0; }
+@media (prefers-color-scheme: dark) {
+  .theme-system {
+    --background: 218 39% 11%;
+    --foreground: 210 40% 98%;
+    --card: 220 39% 13%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 39% 13%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 1.2%;
+    --secondary: 217 25% 18%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 20% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 221 44% 18%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 25% 22%;
+    --input: 217 25% 22%;
+    --ring: 217 91% 60%;
+    color-scheme: dark;
+    --info: 212 100% 55%;
+    --info-foreground: 210 40% 98%;
+    --success: 149 55% 46%;
+    --success-foreground: 210 40% 98%;
+    --warning: 42 92% 55%;
+    --warning-foreground: 222 47% 11%;
+  }
+}

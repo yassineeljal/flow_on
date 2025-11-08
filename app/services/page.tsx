@@ -1,4 +1,3 @@
-// src/app/services/page.tsx
 type Service = {
   slug: string;
   title: string;
@@ -101,55 +100,56 @@ const services: Service[] = [
   },
 ];
 
+export const metadata = { title: "Services | FlowOn" };
+
 export default function Page() {
   return (
     <div className="space-y-12">
       {/* Intro */}
-      <section className="relative overflow-hidden rounded-3xl p-8 card">
+      <div className="rounded-2xl border p-8 bg-linear-to-b from-primary/10 to-background">
         <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">Services</h1>
-        <p className="mt-2" style={{ color: "var(--muted)" }}>
+        <p className="mt-2 text-muted-foreground">
           Tout ce qu’il faut pour un site <strong>rapide</strong>, <strong>beau</strong> et <strong>orienté conversion</strong>.
         </p>
-      </section>
+      </div>
 
       {/* Grid services */}
       <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {services.map((s) => (
-          <article key={s.slug} className="card flex flex-col gap-4">
-            <div className="flex items-center gap-2">
-              <div className="inline-flex h-9 w-9 items-center justify-center rounded-xl border"
-                   style={{ borderColor: "color-mix(in oklab, var(--ink) 25%, transparent)" }}>
-                {s.icon}
+          <div key={s.slug} id={s.slug} className="rounded-lg border bg-card/70 backdrop-blur shadow-sm">
+            <div className="p-6 flex flex-col gap-4">
+              <div className="flex items-center gap-2">
+                <div className="inline-flex h-9 w-9 items-center justify-center rounded-md border text-muted-foreground">
+                  {s.icon}
+                </div>
+                <h2 className="text-lg font-semibold">{s.title}</h2>
               </div>
-              <h2 className="text-lg font-semibold">{s.title}</h2>
+              <p className="text-sm text-muted-foreground">{s.desc}</p>
+              <ul className="text-sm grid gap-2 text-muted-foreground">
+                {s.bullets.map((b) => (
+                  <li key={b} className="flex items-start gap-2">
+                    <span aria-hidden>✓</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="pt-2">
+                <a href="/contact" className="inline-flex h-10 items-center justify-center rounded-md border px-4 text-sm">Demander un devis</a>
+              </div>
             </div>
-            <p className="text-sm" style={{ color: "var(--muted)" }}>{s.desc}</p>
-            <ul className="text-sm grid gap-2" style={{ color: "var(--muted)" }}>
-              {s.bullets.map(b => (
-                <li key={b} className="flex items-start gap-2">
-                  <span aria-hidden>✓</span>
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="pt-2">
-              <a href="/contact" className="btn">Demander un devis</a>
-            </div>
-          </article>
+          </div>
         ))}
       </section>
 
       {/* Bandeau CTA */}
-      <section className="card text-center">
+      <div className="rounded-2xl border p-8 text-center">
         <h3 className="text-xl font-semibold">Prêt à démarrer ?</h3>
-        <p className="mt-1" style={{ color: "var(--muted)" }}>
-          Choisissez un forfait ou décrivez votre besoin — je vous réponds sous 24h.
-        </p>
+        <p className="mt-1 text-muted-foreground">Choisissez un forfait ou décrivez votre besoin — je vous réponds sous 24h.</p>
         <div className="mt-4 flex justify-center gap-3">
-          <a href="/pricing" className="btn">Voir les forfaits</a>
-          <a href="/contact" className="btn btn-primary">Obtenir un devis</a>
+          <a href="/pricing" className="inline-flex h-10 items-center justify-center rounded-md border px-4 text-sm">Voir les forfaits</a>
+          <a href="/contact" className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 text-sm text-primary-foreground">Obtenir un devis</a>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
