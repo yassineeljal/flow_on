@@ -139,5 +139,16 @@
     "sort": "Trier",
     "more": "Plus",
     "less": "Moins"
+  },
+  "notFound": {
+    "title": "Oups ! Page introuvable",
+    "description": "La page que vous recherchez n'existe pas ou a été déplacée. Ne vous inquiétez pas, on va vous ramener à bon port !",
+    "backHome": "Retour à l'accueil",
+    "contact": "Contactez-nous",
+    "popularPages": "Ou explorez nos pages populaires :",
+    "services": "Services",
+    "pricing": "Tarifs",
+    "about": "À propos",
+    "faq": "FAQ"
   }
 }

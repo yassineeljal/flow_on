@@ -11,6 +11,8 @@ import MobileMenu from "@/components/mobile-menu";
 import Image from "next/image";
 import LanguageSwitcher from "@/components/language-switcher";
 import Navigation from "@/components/navigation";
+import { Toaster } from "sonner";
+import ScrollToTop from "@/components/scroll-to-top";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -30,11 +32,24 @@ export async function generateMetadata({
     keywords: t('keywords').split(','),
     authors: [{ name: "FlowOn" }],
     metadataBase: new URL("https://flowon.example.com"),
+    icons: {
+      icon: [
+        { url: '/logo.png', sizes: '32x32', type: 'image/png' },
+        { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+        { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+      ],
+      apple: [
+        { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      ],
+      shortcut: '/favicon.ico',
+    },
     openGraph: {
       title: t('ogTitle'),
       description: t('ogDescription'),
       type: "website",
+      images: [{ url: '/logo.png', width: 1200, height: 630 }],
     },
+    manifest: '/manifest.json',
   };
 }
 
@@ -335,6 +350,8 @@ body::before {
             </div>
           </footer>
           <CookieConsent />
+          <ScrollToTop />
+          <Toaster position="top-right" richColors closeButton />
         </NextIntlClientProvider>
       </body>
     </html>

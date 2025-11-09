@@ -2,11 +2,13 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { toast } from "sonner";
 
 const BUDGET = ["<1000","1000-3000","3000-6000",">6000"] as const;
 const DELAY  = ["urgent","2-3 semaines","1-2 mois","je ne sais pas"] as const;
@@ -24,28 +26,48 @@ export default function ContactForm(){
   const { register, handleSubmit, formState: { errors, isSubmitting }, reset } =
     useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const [done, setDone] = useState(false);
-  const [error, setError] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const captchaRef = useRef<HCaptcha>(null);
 
   const onSubmit = async (data: FormData) => {
-    setDone(false);
-    setError(false);
+    // Check captcha
+    if (!captchaToken) {
+      toast.error("Veuillez compléter le captcha");
+      return;
+    }
+
     try {
+      const loadingToast = toast.loading("Envoi en cours...");
+      
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, captchaToken }),
       });
+      
+      const result = await res.json();
+      toast.dismiss(loadingToast);
+      
       if (res.ok) { 
-        setDone(true); 
+        toast.success("Message envoyé avec succès ! 🎉", {
+          description: "Je te réponds sous 24h ⚡"
+        });
         reset();
-        // Hide success message after 5 seconds
-        setTimeout(() => setDone(false), 5000);
+        setCaptchaToken(null);
+        captchaRef.current?.resetCaptcha();
+      } else if (res.status === 429) {
+        toast.error("Trop de requêtes", {
+          description: result.error || "Réessayez plus tard"
+        });
       } else {
-        setError(true);
+        toast.error("Erreur lors de l'envoi", {
+          description: result.error || "Veuillez réessayer"
+        });
       }
     } catch (err) {
-      setError(true);
+      toast.error("Erreur réseau", {
+        description: "Vérifiez votre connexion internet"
+      });
     }
   };
 
@@ -190,12 +212,23 @@ export default function ContactForm(){
         )}
       </div>
 
-      {/* Submit Button & Status */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 animate-fade-in" style={{ animationDelay: '250ms' }}>
+      {/* Submit Button & HCaptcha */}
+      <div className="space-y-4 pt-2 animate-fade-in" style={{ animationDelay: '250ms' }}>
+        {/* HCaptcha */}
+        <div className="flex justify-center md:justify-start">
+          <HCaptcha
+            ref={captchaRef}
+            sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY || "10000000-ffff-ffff-ffff-000000000001"}
+            onVerify={(token) => setCaptchaToken(token)}
+            onExpire={() => setCaptchaToken(null)}
+            onError={() => setCaptchaToken(null)}
+          />
+        </div>
+
         <Button 
           type="submit"
-          disabled={isSubmitting}
-          className="h-12 px-8 btn-gradient shadow-glow hover-lift font-semibold text-base disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={isSubmitting || !captchaToken}
+          className="h-12 px-8 btn-gradient shadow-glow hover-lift font-semibold text-base disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
         >
           {isSubmitting ? (
             <>
@@ -214,30 +247,6 @@ export default function ContactForm(){
             </>
           )}
         </Button>
-
-        {/* Success Message */}
-        {done && (
-          <div className="flex items-center gap-2 p-3 rounded-lg bg-green-500/10 border border-green-500/30 animate-scale-in">
-            <svg className="w-5 h-5 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span className="text-sm font-medium text-green-600 dark:text-green-400">
-              Message envoyé ! Je te réponds sous 24h ⚡
-            </span>
-          </div>
-        )}
-
-        {/* Error Message */}
-        {error && (
-          <div className="flex items-center gap-2 p-3 rounded-lg bg-destructive/10 border border-destructive/30 animate-scale-in">
-            <svg className="w-5 h-5 text-destructive shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span className="text-sm font-medium text-destructive">
-              Oups, erreur. Réessaye ou contacte-moi par email.
-            </span>
-          </div>
-        )}
       </div>
 
       {/* Privacy Notice */}

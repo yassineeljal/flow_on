@@ -139,5 +139,16 @@
     "sort": "Ordenar",
     "more": "Más",
     "less": "Menos"
+  },
+  "notFound": {
+    "title": "¡Ups! Página no encontrada",
+    "description": "La página que buscas no existe o ha sido movida. ¡No te preocupes, te ayudaremos a volver!",
+    "backHome": "Volver al inicio",
+    "contact": "Contáctenos",
+    "popularPages": "O explora nuestras páginas populares:",
+    "services": "Servicios",
+    "pricing": "Precios",
+    "about": "Acerca de",
+    "faq": "Preguntas frecuentes"
   }
 }
