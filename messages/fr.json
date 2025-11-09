@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "title": "FlowOn — Création de sites web modernes et performants",
+    "description": "Des sites rapides, beaux, qui convertissent. Création de sites vitrine, e-commerce et optimisation SEO.",
+    "keywords": "création site web,développement web,SEO,e-commerce,site vitrine",
+    "ogTitle": "FlowOn — Création de sites web modernes",
+    "ogDescription": "Des sites rapides, beaux, qui convertissent."
+  },
+  "layout": {
+    "contact": "Contact",
+    "footer": {
+      "tagline": "Des sites web rapides, élégants et pensés pour convertir.",
+      "services": "Services",
+      "showcase": "Site vitrine",
+      "ecommerce": "E-commerce",
+      "seo": "SEO & Contenu",
+      "maintenance": "Maintenance",
+      "branding": "Branding",
+      "company": "Entreprise",
+      "about": "À propos",
+      "pricing": "Tarifs",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "legal": "Légal",
+      "legalNotice": "Mentions légales",
+      "privacy": "Confidentialité",
+      "terms": "CGV/CGU",
+      "cookies": "Cookies",
+      "rights": "— Tous droits réservés.",
+      "operational": "Tous systèmes opérationnels"
+    }
+  },
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "pricing": "Forfaits",
+    "about": "À propos",
+    "legal": "Mentions",
+    "contact": "Contact",
+    "faq": "FAQ"
+  },
+  "home": {
+    "badge": "✨ Design moderne et performant",
+    "title": "Des sites rapides, élégants, et pensés pour convertir",
+    "subtitle": "Vitrine, e-commerce, SEO — livré vite, sans stress. Parlons de votre projet et donnons vie à vos idées.",
+    "ctaPricing": "Voir les forfaits",
+    "ctaQuote": "Obtenir un devis gratuit",
+    "trustFast": "Livraison rapide",
+    "trustSupport": "Support réactif",
+    "trustSeo": "SEO optimisé",
+    "performanceTitle": "Performance",
+    "performanceDesc": "Core Web Vitals optimisés, chargements ultra-rapides pour une expérience fluide.",
+    "designTitle": "Design",
+    "designDesc": "Interface moderne et élégante qui reflète votre identité et capte l'attention.",
+    "seoTitle": "SEO",
+    "seoDesc": "Optimisation technique et sémantique pour un meilleur référencement naturel.",
+    "statsProjects": "Projets livrés",
+    "statsSatisfaction": "Satisfaction client",
+    "statsSupport": "Support 7j/7",
+    "statsSpeed": "Temps de chargement moyen",
+    "servicesTitle": "Nos services",
+    "servicesSubtitle": "Solutions complètes pour votre présence en ligne"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Solutions complètes pour transformer votre présence en ligne",
+    "showcaseTitle": "Site Vitrine",
+    "showcaseDesc": "Un site élégant et performant qui reflète votre marque et convertit vos visiteurs.",
+    "ecommerceTitle": "E-commerce",
+    "ecommerceDesc": "Boutique en ligne optimisée pour maximiser vos ventes et fidéliser vos clients.",
+    "seoTitle": "SEO & Contenu",
+    "seoDesc": "Stratégie complète pour améliorer votre visibilité et attirer plus de clients qualifiés.",
+    "maintenanceTitle": "Maintenance",
+    "maintenanceDesc": "Support technique continu pour garantir performance et sécurité de votre site.",
+    "brandingTitle": "Branding",
+    "brandingDesc": "Identité visuelle cohérente qui renforce votre image et marque les esprits."
+  },
+  "pricing": {
+    "title": "Nos Forfaits",
+    "subtitle": "Des solutions adaptées à chaque besoin et budget",
+    "starterTitle": "Starter",
+    "starterDesc": "Parfait pour démarrer",
+    "starterPrice": "À partir de 990€",
+    "proTitle": "Pro",
+    "proDesc": "Pour les entreprises ambitieuses",
+    "proPrice": "À partir de 2490€",
+    "enterpriseTitle": "Enterprise",
+    "enterpriseDesc": "Solution sur-mesure",
+    "enterprisePrice": "Sur devis",
+    "cta": "Choisir ce forfait",
+    "ctaContact": "Nous contacter"
+  },
+  "faq": {
+    "title": "Questions Fréquentes",
+    "subtitle": "Tout ce que vous devez savoir sur nos services"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Parlons de votre projet",
+    "name": "Nom",
+    "email": "Email",
+    "subject": "Sujet",
+    "message": "Message",
+    "send": "Envoyer",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé avec succès !",
+    "error": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "about": {
+    "title": "À Propos",
+    "subtitle": "Qui sommes-nous et pourquoi nous choisir"
+  },
+  "legal": {
+    "title": "Mentions Légales",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions Générales",
+    "cookies": "Politique des Cookies"
+  },
+  "cookieConsent": {
+    "message": "Nous utilisons des cookies pour améliorer votre expérience.",
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "learnMore": "En savoir plus"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "more": "Plus",
+    "less": "Moins"
+  }
+}

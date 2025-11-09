@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "title": "FlowOn — Modern & High-Performance Web Development",
+    "description": "Fast, beautiful websites that convert. Website creation, e-commerce, and SEO optimization.",
+    "keywords": "web design,web development,SEO,e-commerce,business website",
+    "ogTitle": "FlowOn — Modern Web Development",
+    "ogDescription": "Fast, beautiful websites that convert."
+  },
+  "layout": {
+    "contact": "Contact",
+    "footer": {
+      "tagline": "Fast, elegant websites designed to convert.",
+      "services": "Services",
+      "showcase": "Business Website",
+      "ecommerce": "E-commerce",
+      "seo": "SEO & Content",
+      "maintenance": "Maintenance",
+      "branding": "Branding",
+      "company": "Company",
+      "about": "About",
+      "pricing": "Pricing",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "legal": "Legal",
+      "legalNotice": "Legal Notice",
+      "privacy": "Privacy",
+      "terms": "Terms & Conditions",
+      "cookies": "Cookies",
+      "rights": "— All rights reserved.",
+      "operational": "All systems operational"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "pricing": "Pricing",
+    "about": "About",
+    "legal": "Legal",
+    "contact": "Contact",
+    "faq": "FAQ"
+  },
+  "home": {
+    "badge": "✨ Modern & High-Performance Design",
+    "title": "Fast, elegant websites designed to convert",
+    "subtitle": "Business sites, e-commerce, SEO — delivered fast, hassle-free. Let's talk about your project and bring your ideas to life.",
+    "ctaPricing": "View Pricing",
+    "ctaQuote": "Get a Free Quote",
+    "trustFast": "Fast Delivery",
+    "trustSupport": "Responsive Support",
+    "trustSeo": "SEO Optimized",
+    "performanceTitle": "Performance",
+    "performanceDesc": "Optimized Core Web Vitals, ultra-fast loading for a smooth experience.",
+    "designTitle": "Design",
+    "designDesc": "Modern and elegant interface that reflects your identity and captures attention.",
+    "seoTitle": "SEO",
+    "seoDesc": "Technical and semantic optimization for better organic search rankings.",
+    "statsProjects": "Projects Delivered",
+    "statsSatisfaction": "Client Satisfaction",
+    "statsSupport": "24/7 Support",
+    "statsSpeed": "Average Load Time",
+    "servicesTitle": "Our Services",
+    "servicesSubtitle": "Complete solutions for your online presence"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Complete solutions to transform your online presence",
+    "showcaseTitle": "Business Website",
+    "showcaseDesc": "An elegant and performant website that reflects your brand and converts visitors.",
+    "ecommerceTitle": "E-commerce",
+    "ecommerceDesc": "Optimized online store to maximize sales and build customer loyalty.",
+    "seoTitle": "SEO & Content",
+    "seoDesc": "Complete strategy to improve visibility and attract more qualified customers.",
+    "maintenanceTitle": "Maintenance",
+    "maintenanceDesc": "Ongoing technical support to ensure performance and security of your site.",
+    "brandingTitle": "Branding",
+    "brandingDesc": "Coherent visual identity that strengthens your image and leaves a lasting impression."
+  },
+  "pricing": {
+    "title": "Our Pricing",
+    "subtitle": "Solutions tailored to every need and budget",
+    "starterTitle": "Starter",
+    "starterDesc": "Perfect to get started",
+    "starterPrice": "From $1,090",
+    "proTitle": "Pro",
+    "proDesc": "For ambitious businesses",
+    "proPrice": "From $2,690",
+    "enterpriseTitle": "Enterprise",
+    "enterpriseDesc": "Custom solution",
+    "enterprisePrice": "Custom Quote",
+    "cta": "Choose this plan",
+    "ctaContact": "Contact us"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about our services"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Let's talk about your project",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "An error occurred. Please try again."
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Who we are and why choose us"
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "cookies": "Cookie Policy"
+  },
+  "cookieConsent": {
+    "message": "We use cookies to improve your experience.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "learnMore": "Learn more"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "more": "More",
+    "less": "Less"
+  }
+}

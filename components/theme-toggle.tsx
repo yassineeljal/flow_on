@@ -10,9 +10,11 @@ export default function ThemeToggle() {
   const [mode, setMode] = useState<Mode>("system");
 
   useEffect(() => {
+    const saved = localStorage.getItem("flowon-theme") as Mode | null;
+    if (saved === "light" || saved === "dark" || saved === "system") {
+      setMode(saved);
+    }
     setMounted(true);
-    const saved = localStorage.getItem("flowon-theme");
-    if (saved === "light" || saved === "dark" || saved === "system") setMode(saved);
   }, []);
 
   const apply = (next: Mode) => {
@@ -20,7 +22,11 @@ export default function ThemeToggle() {
     root.classList.remove("dark", "theme-system");
     if (next === "dark") root.classList.add("dark");
     if (next === "system") root.classList.add("theme-system");
+    
+    // Sauvegarder dans localStorage ET cookie
     localStorage.setItem("flowon-theme", next);
+    document.cookie = `flowon-theme=${next}; path=/; max-age=31536000; SameSite=Lax`;
+    
     setMode(next);
   };
 

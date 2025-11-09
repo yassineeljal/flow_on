@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "title": "FlowOn — Creación de sitios web modernos y de alto rendimiento",
+    "description": "Sitios rápidos, hermosos, que convierten. Creación de sitios web, e-commerce y optimización SEO.",
+    "keywords": "creación sitio web,desarrollo web,SEO,e-commerce,sitio corporativo",
+    "ogTitle": "FlowOn — Creación de sitios web modernos",
+    "ogDescription": "Sitios rápidos, hermosos, que convierten."
+  },
+  "layout": {
+    "contact": "Contacto",
+    "footer": {
+      "tagline": "Sitios web rápidos, elegantes y diseñados para convertir.",
+      "services": "Servicios",
+      "showcase": "Sitio Corporativo",
+      "ecommerce": "E-commerce",
+      "seo": "SEO y Contenido",
+      "maintenance": "Mantenimiento",
+      "branding": "Branding",
+      "company": "Empresa",
+      "about": "Acerca de",
+      "pricing": "Precios",
+      "faq": "FAQ",
+      "contact": "Contacto",
+      "legal": "Legal",
+      "legalNotice": "Aviso Legal",
+      "privacy": "Privacidad",
+      "terms": "Términos y Condiciones",
+      "cookies": "Cookies",
+      "rights": "— Todos los derechos reservados.",
+      "operational": "Todos los sistemas operativos"
+    }
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "pricing": "Precios",
+    "about": "Acerca de",
+    "legal": "Legal",
+    "contact": "Contacto",
+    "faq": "FAQ"
+  },
+  "home": {
+    "badge": "✨ Diseño moderno y de alto rendimiento",
+    "title": "Sitios web rápidos, elegantes y diseñados para convertir",
+    "subtitle": "Sitios corporativos, e-commerce, SEO — entregados rápido, sin estrés. Hablemos de su proyecto y demos vida a sus ideas.",
+    "ctaPricing": "Ver Precios",
+    "ctaQuote": "Obtener Presupuesto Gratuito",
+    "trustFast": "Entrega Rápida",
+    "trustSupport": "Soporte Reactivo",
+    "trustSeo": "SEO Optimizado",
+    "performanceTitle": "Rendimiento",
+    "performanceDesc": "Core Web Vitals optimizados, carga ultra-rápida para una experiencia fluida.",
+    "designTitle": "Diseño",
+    "designDesc": "Interfaz moderna y elegante que refleja su identidad y capta la atención.",
+    "seoTitle": "SEO",
+    "seoDesc": "Optimización técnica y semántica para un mejor posicionamiento orgánico.",
+    "statsProjects": "Proyectos Entregados",
+    "statsSatisfaction": "Satisfacción del Cliente",
+    "statsSupport": "Soporte 24/7",
+    "statsSpeed": "Tiempo de Carga Promedio",
+    "servicesTitle": "Nuestros Servicios",
+    "servicesSubtitle": "Soluciones completas para su presencia en línea"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones completas para transformar su presencia en línea",
+    "showcaseTitle": "Sitio Corporativo",
+    "showcaseDesc": "Un sitio elegante y de alto rendimiento que refleja su marca y convierte visitantes.",
+    "ecommerceTitle": "E-commerce",
+    "ecommerceDesc": "Tienda en línea optimizada para maximizar ventas y fidelizar clientes.",
+    "seoTitle": "SEO y Contenido",
+    "seoDesc": "Estrategia completa para mejorar visibilidad y atraer más clientes calificados.",
+    "maintenanceTitle": "Mantenimiento",
+    "maintenanceDesc": "Soporte técnico continuo para garantizar rendimiento y seguridad de su sitio.",
+    "brandingTitle": "Branding",
+    "brandingDesc": "Identidad visual coherente que fortalece su imagen y marca las mentes."
+  },
+  "pricing": {
+    "title": "Nuestros Precios",
+    "subtitle": "Soluciones adaptadas a cada necesidad y presupuesto",
+    "starterTitle": "Starter",
+    "starterDesc": "Perfecto para comenzar",
+    "starterPrice": "Desde $1,090",
+    "proTitle": "Pro",
+    "proDesc": "Para empresas ambiciosas",
+    "proPrice": "Desde $2,690",
+    "enterpriseTitle": "Enterprise",
+    "enterpriseDesc": "Solución personalizada",
+    "enterprisePrice": "Presupuesto Personalizado",
+    "cta": "Elegir este plan",
+    "ctaContact": "Contáctenos"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Todo lo que necesita saber sobre nuestros servicios"
+  },
+  "contact": {
+    "title": "Contáctenos",
+    "subtitle": "Hablemos de su proyecto",
+    "name": "Nombre",
+    "email": "Correo",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado con éxito!",
+    "error": "Ocurrió un error. Por favor intente de nuevo."
+  },
+  "about": {
+    "title": "Acerca de Nosotros",
+    "subtitle": "Quiénes somos y por qué elegirnos"
+  },
+  "legal": {
+    "title": "Aviso Legal",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos y Condiciones",
+    "cookies": "Política de Cookies"
+  },
+  "cookieConsent": {
+    "message": "Utilizamos cookies para mejorar su experiencia.",
+    "accept": "Aceptar",
+    "decline": "Rechazar",
+    "learnMore": "Más información"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "close": "Cerrar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "more": "Más",
+    "less": "Menos"
+  }
+}
