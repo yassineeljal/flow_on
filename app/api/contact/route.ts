@@ -77,10 +77,15 @@ export async function POST(req: Request) {
       console.log("[CONTACT] (no RESEND) ->", data);
       return NextResponse.json({ ok: true, note: "logged-only" });
     }
+
+    // En dev, utiliser le domaine de test de Resend
+    // En prod, utiliser votre domaine vérifié
+    const fromEmail = process.env.FROM_EMAIL || "onboarding@resend.dev";
+    const toEmail = process.env.LEADS_TO || "jalwach.co@gmail.com";
     
     await resend.emails.send({
-      from: "FlowOn <noreply@your-domain.com>",
-      to: process.env.LEADS_TO || "jalwach.co@gmail.com",
+      from: `FlowOn <${fromEmail}>`,
+      to: toEmail,
       subject: `Nouveau devis — ${data.name} (${data.budget}, ${data.delay})`,
       text: `Nom: ${data.name}\nEmail: ${data.email}\nBudget: ${data.budget}\nDélai: ${data.delay}\n\n${data.message}`,
     });

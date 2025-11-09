@@ -1,4 +1,4 @@
-import { setRequestLocale } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import ContactForm from "@/components/contact-form";
 import { Link } from '@/i18n/routing';
 
@@ -10,6 +10,49 @@ export const metadata = {
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
+
+  // Get translations for the contact form - extract as plain object
+  const formTranslations = await getTranslations({ locale, namespace: 'contactForm' });
+  const formT = {
+    nameLabel: formTranslations('nameLabel'),
+    namePlaceholder: formTranslations('namePlaceholder'),
+    nameError: formTranslations('nameError'),
+    emailLabel: formTranslations('emailLabel'),
+    emailPlaceholder: formTranslations('emailPlaceholder'),
+    emailError: formTranslations('emailError'),
+    budgetLabel: formTranslations('budgetLabel'),
+    budgetPlaceholder: formTranslations('budgetPlaceholder'),
+    budgetError: formTranslations('budgetError'),
+    budgetLow: formTranslations('budgetLow'),
+    budgetMed: formTranslations('budgetMed'),
+    budgetHigh: formTranslations('budgetHigh'),
+    budgetVeryHigh: formTranslations('budgetVeryHigh'),
+    delayLabel: formTranslations('delayLabel'),
+    delayPlaceholder: formTranslations('delayPlaceholder'),
+    delayError: formTranslations('delayError'),
+    delayUrgent: formTranslations('delayUrgent'),
+    delay2to3: formTranslations('delay2to3'),
+    delay1to2: formTranslations('delay1to2'),
+    delayDontKnow: formTranslations('delayDontKnow'),
+    messageLabel: formTranslations('messageLabel'),
+    messagePlaceholder: formTranslations('messagePlaceholder'),
+    messageError: formTranslations('messageError'),
+    adviceTitle: formTranslations('adviceTitle'),
+    adviceText: formTranslations('adviceText'),
+    captchaError: formTranslations('captchaError'),
+    submitButton: formTranslations('submitButton'),
+    submitting: formTranslations('submitting'),
+    successTitle: formTranslations('successTitle'),
+    successDesc: formTranslations('successDesc'),
+    errorRateLimit: formTranslations('errorRateLimit'),
+    errorRateLimitDesc: formTranslations('errorRateLimitDesc'),
+    errorGeneral: formTranslations('errorGeneral'),
+    errorGeneralDesc: formTranslations('errorGeneralDesc'),
+    errorNetwork: formTranslations('errorNetwork'),
+    errorNetworkDesc: formTranslations('errorNetworkDesc'),
+    privacyNotice: formTranslations('privacyNotice'),
+    privacyLink: formTranslations('privacyLink'),
+  };
 
   // Content by language
   const content: Record<string, any> = {
@@ -244,7 +287,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
               {t.formSection.subtitle}
             </p>
           </div>
-          <ContactForm />
+          <ContactForm t={formT} />
         </div>
 
         {/* Sidebar */}

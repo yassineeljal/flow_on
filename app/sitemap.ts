@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://flowon.example.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://flowon.example.com';
   const locales = ['fr', 'en', 'es'];
   const pages = [
     '',

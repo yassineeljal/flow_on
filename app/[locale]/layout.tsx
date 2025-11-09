@@ -31,17 +31,13 @@ export async function generateMetadata({
     description: t('description'),
     keywords: t('keywords').split(','),
     authors: [{ name: "FlowOn" }],
-    metadataBase: new URL("https://flowon.example.com"),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
     icons: {
       icon: [
-        { url: '/logo.png', sizes: '32x32', type: 'image/png' },
-        { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-        { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+        { url: '/icon.png', type: 'image/png' },
+        { url: '/favicon.ico', type: 'image/x-icon', sizes: 'any' },
       ],
-      apple: [
-        { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-      ],
-      shortcut: '/favicon.ico',
+      apple: '/apple-icon.png',
     },
     openGraph: {
       title: t('ogTitle'),
